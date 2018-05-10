@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -25,6 +27,16 @@ class Store
      * @ORM\Column(type="string", length=255)
      */
     private $url;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\StoreCategory", mappedBy="store", orphanRemoval=true)
+     */
+    private $storeCategories;
+
+    public function __construct()
+    {
+        $this->storeCategories = new ArrayCollection();
+    }
 
     public function getId()
     {
@@ -51,6 +63,37 @@ class Store
     public function setUrl(string $url): self
     {
         $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|StoreCategory[]
+     */
+    public function getStoreCategories(): Collection
+    {
+        return $this->storeCategories;
+    }
+
+    public function addStoreCategory(StoreCategory $storeCategory): self
+    {
+        if (!$this->storeCategories->contains($storeCategory)) {
+            $this->storeCategories[] = $storeCategory;
+            $storeCategory->setStore($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStoreCategory(StoreCategory $storeCategory): self
+    {
+        if ($this->storeCategories->contains($storeCategory)) {
+            $this->storeCategories->removeElement($storeCategory);
+            // set the owning side to null (unless already changed)
+            if ($storeCategory->getStore() === $this) {
+                $storeCategory->setStore(null);
+            }
+        }
 
         return $this;
     }

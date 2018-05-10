@@ -7,9 +7,24 @@
     </head>
     <body>
         {% block body %}
-            {% for category in categories  %}
-                <a href="/{{ category.getName() }}">{{ category.getName() }}</a><br>
-            {% endfor %}
+            {% if parentCategory is defined and parentCategory %}
+                <a href="/category/{{ parentCategory.getId() }}">Go back to {{ parentCategory.getName() }}</a>
+            {% else %}
+                <a href="/">Home</a>
+            {% endif %}
+            {% if categories is defined and categories is not empty %}
+                {% for category in categories  %}
+                    <a href="/category/{{ category.getId }}">{{ category.getName() }}</a><br>
+                {% endfor %}
+            {% endif %}
+            {% if products is defined and products is not empty %}
+                {% for product in products %}
+                    <p>
+                        Name: {{ product.getName() }}<br>
+                        <a href="/product/{{ product.getId() }}">link</a><br>
+                    </p>
+                {% endfor %}
+            {% endif %}
         {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

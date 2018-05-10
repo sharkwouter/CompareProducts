@@ -44,10 +44,16 @@ class Category
      */
     private $parent;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\StoreCategory", mappedBy="category", orphanRemoval=true)
+     */
+    private $storeCategories;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
         $this->products = new ArrayCollection();
+        $this->storeCategories = new ArrayCollection();
     }
 
     public function getId()
@@ -141,7 +147,7 @@ class Category
         return $this;
     }
 
-    public function getParent() : Category
+    public function getParent() : ?Category
     {
         return $this->parent;
     }
@@ -149,6 +155,37 @@ class Category
     public function setParent(Category $parent) : self
     {
         $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|StoreCategory[]
+     */
+    public function getStoreCategories(): Collection
+    {
+        return $this->storeCategories;
+    }
+
+    public function addStoreCategory(StoreCategory $storeCategory): self
+    {
+        if (!$this->storeCategories->contains($storeCategory)) {
+            $this->storeCategories[] = $storeCategory;
+            $storeCategory->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStoreCategory(StoreCategory $storeCategory): self
+    {
+        if ($this->storeCategories->contains($storeCategory)) {
+            $this->storeCategories->removeElement($storeCategory);
+            // set the owning side to null (unless already changed)
+            if ($storeCategory->getCategory() === $this) {
+                $storeCategory->setCategory(null);
+            }
+        }
 
         return $this;
     }

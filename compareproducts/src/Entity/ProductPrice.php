@@ -38,6 +38,16 @@ class ProductPrice
      */
     private $date;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $url;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $htmlLocation;
+
     public function getId()
     {
         return $this->id;
@@ -87,6 +97,30 @@ class ProductPrice
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(?string $url): self
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getHtmlLocation(): ?string
+    {
+        return $this->htmlLocation;
+    }
+
+    public function setHtmlLocation(?string $htmlLocation): self
+    {
+        $this->htmlLocation = $htmlLocation;
 
         return $this;
     }

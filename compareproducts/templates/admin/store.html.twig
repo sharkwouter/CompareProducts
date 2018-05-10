@@ -6,7 +6,20 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+            Add a store:
+            <form method="post">
+                Name <input name="name"/><br>
+                Url <input name="url"/><br>
+                <input type="submit" value="Add Store"/>
+            </form>
+
+            {% for store in stores %}
+                <h5>{{ store.getName() }}</h5>
+                <a href="{{ store.getUrl() }}">{{ store.getUrl() }}</a>
+                <form method="post" action="/admin/store/remove"><input type="hidden" name="remove" value="{{ store.getId }}"/><input type="submit" value="Delete"/></form>
+            {% endfor %}
+        {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>

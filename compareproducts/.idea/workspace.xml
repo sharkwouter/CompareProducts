@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="61cb2449-b986-4226-8fcc-f85f15c4e9da" name="Default" comment="" />
+    <list default="true" id="61cb2449-b986-4226-8fcc-f85f15c4e9da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/store.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/store.html.twig" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +23,7 @@
       <file leaf-file-name="OverviewController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/OverviewController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1290">
+            <state relative-caret-position="1155">
               <caret line="86" selection-start-line="86" selection-end-line="86" />
               <folding>
                 <element signature="e#6#85#0#PHP" expanded="true" />
@@ -32,11 +37,12 @@
       <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+            <state relative-caret-position="240">
+              <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
               <folding>
-                <element signature="e#115#174#0#PHP" expanded="true" />
-                <element signature="e#604#621#0#PHP" expanded="true" />
+                <element signature="e#115#136#0#PHP" expanded="true" />
+                <element signature="e#629#652#0#PHP" expanded="true" />
+                <element signature="e#833#850#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -44,7 +50,11 @@
       </file>
       <file leaf-file-name="store.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/admin/store.html.twig">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="admin.html.twig" pinned="false" current-in-tab="false">
@@ -94,7 +104,9 @@
       </file>
       <file leaf-file-name="Store.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/Store.php">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-180" />
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="ProductPrice.php" pinned="false" current-in-tab="false">
@@ -109,7 +121,7 @@
     </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -125,6 +137,7 @@
         <option value="$PROJECT_DIR$/templates/product.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/OverviewController.php" />
         <option value="$PROJECT_DIR$/templates/admin.html.twig" />
+        <option value="$PROJECT_DIR$/templates/admin/store.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
       </list>
     </option>
@@ -198,7 +211,7 @@
     <option name="width" value="1270" />
     <option name="height" value="1059" />
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
@@ -268,7 +281,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/bin/console" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -323,7 +336,7 @@
       <workItem from="1525952802164" duration="263000" />
       <workItem from="1525953074142" duration="155000" />
       <workItem from="1525953237117" duration="10529000" />
-      <workItem from="1525966224901" duration="7997000" />
+      <workItem from="1525966224901" duration="12354000" />
     </task>
     <servers />
   </component>
@@ -333,7 +346,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18944000" />
+    <option name="totallyTimeSpent" value="23301000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="2560" height="1413" extended-state="6" />
@@ -365,6 +378,11 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Controller/OverviewController.php">
@@ -522,9 +540,6 @@
     <entry file="file://$PROJECT_DIR$/src/Repository/CategoryRepository.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Store.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/ProductPrice.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-566">
@@ -567,9 +582,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Store.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/OverviewController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
+        <state relative-caret-position="1155">
           <caret line="86" selection-start-line="86" selection-end-line="86" />
           <folding>
             <element signature="e#6#85#0#PHP" expanded="true" />
@@ -580,15 +600,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/admin/store.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+        <state relative-caret-position="240">
+          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
           <folding>
-            <element signature="e#115#174#0#PHP" expanded="true" />
-            <element signature="e#604#621#0#PHP" expanded="true" />
+            <element signature="e#115#136#0#PHP" expanded="true" />
+            <element signature="e#629#652#0#PHP" expanded="true" />
+            <element signature="e#833#850#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

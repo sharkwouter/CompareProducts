@@ -38,6 +38,12 @@ class Category
      */
     private $products;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $parent;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -131,6 +137,18 @@ class Category
                 $product->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getParent() : Category
+    {
+        return $this->parent;
+    }
+
+    public function setParent(Category $parent) : self
+    {
+        $this->parent = $parent;
 
         return $this;
     }

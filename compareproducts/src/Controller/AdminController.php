@@ -37,13 +37,19 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/store", name="storeAdmin")
+     * @param EntityManagerInterface $entityManager
+     * @param Request $request
+     * @return Response
+     * @Route("/admin/store/add")
      */
-    public function overviewStores(EntityManagerInterface $entityManager, Request $request) : Response
+    public function addStore(EntityManagerInterface $entityManager, Request $request) : Response
     {
         $newName = $request->request->get("name", "");
         $newUrl = $request->request->get("url", "");
-        $toDelete = $request->request->get("remove", "");
+
+        if(substr($newUrl, -1 ) != "/"){
+            $newUrl=$newUrl."/";
+        }
 
         if(!empty($newUrl) && !empty($newUrl)){
             $store = new Store();
@@ -51,11 +57,16 @@ class AdminController extends Controller
             $store->setUrl($newUrl);
             $entityManager->persist($store);
             $entityManager->flush();
-        } elseif(!empty($toDelete)) {
-            $store = $entityManager->getRepository(Store::class)->findOneBy(array('id' => $toDelete));
-            $entityManager->remove($store);
         }
 
+        return $this->redirectToRoute("storeAdmin");
+    }
+
+    /**
+     * @Route("/admin/store", name="storeAdmin")
+     */
+    public function overviewStores(EntityManagerInterface $entityManager) : Response
+    {
         $stores = $entityManager->getRepository(Store::class)->findAll();
         return $this->render('admin/store.html.twig', array(
             'stores' => $stores,

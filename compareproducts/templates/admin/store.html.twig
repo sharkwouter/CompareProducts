@@ -7,8 +7,11 @@
     </head>
     <body>
         {% block body %}
+            {% if message is defined %}
+                <h1>{{ message }}</h1>
+            {% endif %}
             Add a store:
-            <form method="post" action="/admin/store/add">
+            <form method="post" action="{{ path('addStore') }}">
                 Name <input name="name"/><br>
                 Url <input name="url"/><br>
                 <input type="submit" value="Add Store"/>
@@ -17,7 +20,7 @@
             {% for store in stores %}
                 <h5>{{ store.getName() }}</h5>
                 <a href="{{ store.getUrl() }}">{{ store.getUrl() }}</a>
-                <form method="post" action="/admin/store/remove"><input type="hidden" name="remove" value="{{ store.getId }}"/><input type="submit" value="Delete"/></form>
+                <form method="post" action="{{ path('removeStore') }}"><input type="hidden" name="remove" value="{{ store.getId }}"/><input type="submit" value="Delete"/></form>
             {% endfor %}
         {% endblock %}
         {% block javascripts %}{% endblock %}

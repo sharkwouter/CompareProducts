@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            <h3>Add a category</h3>
+            <form method="post" action="{{ path('addCategory') }}">
+                Name: <input name="name"/>
+                Parent:<select name="parent">
+                    <option default value="-1">None</option>
+                    {% for category in categories %}
+                        <option value="{{ category.getId() }}">{{ category.getId() }}: {{ category.getName() }}</option>
+                    {% endfor %}
+                </select><br>
+                <input type="submit" value="Add Category">
+            </form>
+
+            <h3>Current categories</h3>
+            <table>
+                <tr><th>Id</th><th>Name</th><th>Parent</th><th>Products</th></tr>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.getId() }}</td>
+                    <td>{{ category.getName() }}</td>
+                    <td>
+                        {% if category.getParent() is not null %}
+                            {{ category.getParent().getName() }} ({{ category.getParent().getId() }})
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+                    <td>
+                        {{ category.getProducts()|length }}
+                    </td>
+                </tr>
+
+            {% endfor %}
+            </table>
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

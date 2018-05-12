@@ -7,7 +7,8 @@
     </head>
     <body>
         {% block body %}
-            <a href="/admin/store">Stores</a><br>
+            <a href="{{ path('storeAdmin') }}">Stores</a><br>
+            <a href="{{ path('categoryAdmin') }}">Categories</a><br>
             <a href="/">Home</a>
         {% endblock %}
         {% block javascripts %}{% endblock %}

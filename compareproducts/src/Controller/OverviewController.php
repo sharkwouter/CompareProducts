@@ -20,7 +20,7 @@ class OverviewController extends Controller
 {
     /**
      * @return Response
-     * @Route("/")
+     * @Route("/", name="overview")
      */
     public function Overview(EntityManagerInterface $entityManager)
     {

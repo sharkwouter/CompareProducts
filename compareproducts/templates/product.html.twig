@@ -19,7 +19,8 @@
                 {%  endfor %}
             </section>
 
-            <a href="/">Home</a>
+            <a href="/category/{{ product.getCategory().getId() }}">Get back to category {{ product.getCategory().getName() }}</a>
+            <a href="{{ path('overview') }}">Home</a>
         {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

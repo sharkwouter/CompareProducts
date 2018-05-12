@@ -21,20 +21,37 @@
 
             <h3>Current categories</h3>
             <table>
-                <tr><th>Id</th><th>Name</th><th>Parent</th><th>Products</th></tr>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Parent Category</th>
+                    <th>Sub-categories</th>
+                    <th>Products</th>
+                    <th>Delete?</th>
+                </tr>
             {% for category in categories %}
                 <tr>
                     <td>{{ category.getId() }}</td>
                     <td>{{ category.getName() }}</td>
                     <td>
-                        {% if category.getParent() is not null %}
-                            {{ category.getParent().getName() }} ({{ category.getParent().getId() }})
+                        {% if category.getParent() is not null and category.getParent().getId() is defined %}
+                            {{ category.getParent().getName() }} ({{ category.getParent().getid() }})
                         {% else %}
                             -
                         {% endif %}
                     </td>
+                    <td>{{ category.getCategories()|length }}</td>
+                    <td>{{ category.getProducts()|length }}</td>
                     <td>
-                        {{ category.getProducts()|length }}
+                        {% if category.getCategories()|length == 0 %}
+                            {% if category.getProducts()|length == 0 %}
+                            <form method="post" action="{{ path('removeCatagory') }}"><input type="hidden" name="remove" value="{{ category.getId() }}"><input type="submit" value="Delete"></form>
+                            {% else %}
+                                has products
+                            {% endif %}
+                        {% else %}
+                            has children
+                        {% endif %}
                     </td>
                 </tr>
 

@@ -77,6 +77,37 @@ class AdminController extends Controller
 
     /**
      * @param EntityManagerInterface $entityManager
+     * @param CategoryRepository $repository
+     * @param Request $request
+     * @return Response
+     * @Route("/admin/category/remove", name="removeCatagory")
+     */
+    public function removeCategory(EntityManagerInterface $entityManager, CategoryRepository $repository, Request $request) : Response
+    {
+        $toDelete = $request->request->get("remove", "");
+
+        $message = "Deleted the Category with id ". $toDelete;
+
+        if(!empty($toDelete)) {
+            $category = $repository->findOneById($toDelete);
+
+            if(count($category->getCategories()) == 0) {
+                if(count($category->getProducts()) == 0) {
+                    $entityManager->remove($category);
+                    $entityManager->flush();
+                } else {
+                    $message = "Couldn't delete category, it has products";
+                }
+            } else {
+                $message = "Couldn't delete category, it has children";
+            }
+        }
+
+        return $this->redirectToRoute("categoryAdmin", array('message' => $message));
+    }
+
+    /**
+     * @param EntityManagerInterface $entityManager
      * @param Request $request
      * @return Response
      * @Route("/admin/category/add", name="addCategory")
